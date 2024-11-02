@@ -1,19 +1,16 @@
 fn main() {
-    // Character - satu karakter
-    let initial: char = 'R';
-    println!("Inisial: {}", initial);
+    let angka = 7;
+    if (angka & 1) == 0 {
+        println!(" adalah bilangan genap");
+    } else {
+        println!(" adalah bilangan ganjil");
+    }
 
-    // String Literal - kumpulan karakter
-    let language: &str = "Rust Programming";
-    println!("Bahasa: {}", language);
+    let x = 5;
+    let hasil = x << 3;
+    println!(" 5* 2 = {}", hasil);
 
-    // String Owned - bisa dimodifikasi
-    let mut greeting = String::from("Hello");
-    greeting.push(' '); // Tambah spasi
-    greeting.push_str("Rust!");
-    println!("Salam: {}", greeting);
-
-    // Konversi antara tipe
-    let first_char = language.chars().next().unwrap(); // Ambil karakter pertama
-    println!("Karakter pertama: {}", first_char);
+    let y = 8;
+    let hasil = y >> 3;
+    println!(" 8/2 = {}", hasil);
 }
