@@ -1,16 +1,17 @@
+use rand::distributions::Alphanumeric;
+use rand::{thread_rng, Rng};
+
 fn main() {
-    let angka = 7;
-    if (angka & 1) == 0 {
-        println!(" adalah bilangan genap");
-    } else {
-        println!(" adalah bilangan ganjil");
-    }
+    let mut rng = rand::thread_rng();
+    let i: i32 = rng.gen();
+    println!("{}", i);
 
-    let x = 5;
-    let hasil = x << 3;
-    println!(" 5* 2 = {}", hasil);
+    println!("{}", rand::thread_rng().gen_range(0,100));
+    println!("{}", rand::thread_rng().gen_range(0.0,100.0));
 
-    let y = 8;
-    let hasil = y >> 3;
-    println!(" 8/2 = {}", hasil);
+    let rand_string: String = thread_rng()
+    .sample_iter(Alphanumeric)
+    .take(30)
+    .collect();
+    println!("{}", rand_string);
 }
