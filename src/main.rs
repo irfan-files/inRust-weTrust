@@ -1,17 +1,15 @@
+fn apply_function<F>(value: i32, func: F) -> i32
+where
+    F: Fn(i32) -> i32,
+{
+    func(value)
+}
 
-
-#[allow(unused_variables)]
-#[allow(unused_assignments)]
-
+fn square(x: i32) -> i32 {
+    x * x
+}
 
 fn main() {
-   let a = |a:i32| a+1;
-println!("{}",a(5));
-let b = |b:i32| -> i32 {
-  let c = b+1;
-    c
-};
-println!("{}",b(5));
-
-    }
-  
+    let result = apply_function(5, square);
+    println!("Hasil: {}", result); // Output: Hasil: 25
+}
