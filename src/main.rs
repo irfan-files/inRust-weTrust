@@ -1,15 +1,31 @@
-fn apply_function<F>(value: i32, func: F) -> i32
-where
-    F: Fn(i32) -> i32,
-{
-    func(value)
-}
-
-fn square(x: i32) -> i32 {
-    x * x
-}
+#[allow(unused_variables)]
+#[allow(unused_assignments)]
 
 fn main() {
-    let result = apply_function(5, square);
-    println!("Hasil: {}", result); // Output: Hasil: 25
+  let square = |a| a*a;
+    apply(square, 6);
+
+    let limit = 500;
+    let mut sum = 0;
+    for i in 0 .. {
+      let isq = i*i;
+      if isq > limit {break;}
+      else {
+        if is_even(isq) {
+        sum += isq;
+      }
+    }
+    }
+
+    println!("loop sum = {}",sum); 
+}
+
+fn is_even(n: u32) -> bool {
+  n % 2 == 0
+} 
+
+fn apply (f : fn(i32)-> i32, a:i32) {
+  println!("result  {}",f(a));
+
+
 }
