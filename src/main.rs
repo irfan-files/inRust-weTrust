@@ -1,31 +1,51 @@
-#[allow(unused_variables)]
-#[allow(unused_assignments)]
-
-fn main() {
-  let square = |a| a*a;
-    apply(square, 6);
-
-    let limit = 500;
-    let mut sum = 0;
-    for i in 0 .. {
-      let isq = i*i;
-      if isq > limit {break;}
-      else {
-        if is_even(isq) {
-        sum += isq;
-      }
-    }
-    }
-
-    println!("loop sum = {}",sum); 
+fn cetak_deskripsi(item: &impl Deskripsi) {
+  println!("{}", item.deskripsi());
 }
 
-fn is_even(n: u32) -> bool {
-  n % 2 == 0
-} 
+struct Buku {
+  judul: String,
+  penulis: String,
+}
 
-fn apply (f : fn(i32)-> i32, a:i32) {
-  println!("result  {}",f(a));
+struct Kelas {
+  judul: String,
+  penulis: String,
+}
+
+trait Deskripsi {
+  fn deskripsi(&self) -> String;
+}
 
 
+struct Film {
+  judul: String,
+  sutradara: String,
+}
+
+impl Deskripsi for Buku {
+  fn deskripsi(&self) -> String {
+      format!("Buku: '{}', ditulis oleh {}", self.judul, self.penulis)
+  }
+}
+
+impl Deskripsi for Film {
+  fn deskripsi(&self) -> String {
+      format!("Film: '{}', disutradarai oleh {}", self.judul, self.sutradara)
+  }
+}
+
+
+fn main() {
+  let buku = Buku {
+      judul: String::from("Pemrograman Rust"),
+      penulis: String::from("John Doe"),
+  };
+
+  let film = Film {
+      judul: String::from("Rust: The Movie"),
+      sutradara: String::from("Jane Smith"),
+  };
+
+  cetak_deskripsi(&buku);
+  cetak_deskripsi(&film);
 }

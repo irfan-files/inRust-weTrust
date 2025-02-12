@@ -1,7 +1,14 @@
 [package]
-name = "my_project"
+name = "pos_backend"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-rand = "0.7.3"
+rocket = "0.5.0-rc.2"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+rusqlite = "0.32.1"
+tokio = { version = "1", features = ["full"] }
+rocket_dyn_templates = "0.2.0"
+
+
